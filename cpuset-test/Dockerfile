@@ -4,4 +4,5 @@ FROM     ubuntu:precise
 RUN apt-get update
 
 RUN apt-get install -y cpuburn
+ADD all /all
 CMD    burnP6
