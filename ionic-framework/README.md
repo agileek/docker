@@ -18,7 +18,7 @@ With this alias:
 alias ionic="docker run -ti -p 8100:8100 -p 35729:35729 -v \$PWD:/myApp:rw agileek/ionic-framework ionic"
 ```
 
-you can follow the tutorial exactly (except for the ios part...) as if ionic was installed on your computer.
+you can follow the [ionic tutorial](http://ionicframework.com/getting-started/) (except for the ios part...) without having to install ionic nor cordova nor nodejs on your computer.
 
 ```bash
 ionic start myApp tabs
