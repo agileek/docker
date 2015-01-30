@@ -6,7 +6,7 @@ RUN apt-get update
 
 RUN apt-get install -y npm && ln -s /usr/bin/nodejs /usr/local/bin/node
 
-RUN npm install -g cordova ionic
+RUN npm install -g cordova ionic@1.3.3
 
 RUN ionic start myApp sidemenu
 
