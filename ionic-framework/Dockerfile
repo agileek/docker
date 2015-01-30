@@ -14,4 +14,4 @@ EXPOSE 8100
 EXPOSE 35729
 
 WORKDIR myApp
-CMD ionic serve 8100 35729
+CMD ["ionic", "serve", "8100", "35729"]
