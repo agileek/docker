@@ -19,7 +19,11 @@ alias ionic="docker run -ti -p 8100:8100 -p 35729:35729 --privileged -v /dev/bus
 ```
 
 > Due to a bug in ionic, if you want to use ionic serve, you have to use --net host option :
-> alias ionic="docker run -ti --net host --privileged -v /dev/bus/usb:/dev/bus/usb -v \$PWD:/myApp:rw agileek/ionic-framework ionic"
+
+```
+alias ionic="docker run -ti --net host --privileged -v /dev/bus/usb:/dev/bus/usb -v \$PWD:/myApp:rw agileek/ionic-framework ionic"
+```
+
 you can follow the [ionic tutorial](http://ionicframework.com/getting-started/) (except for the ios part...) without having to install ionic nor cordova nor nodejs on your computer.
 
 ```bash
