@@ -6,7 +6,7 @@ RUN apt-get update &&  \
     apt-get install -y npm && ln -s /usr/bin/nodejs /usr/local/bin/node && \
     apt-get clean
 
-RUN npm install -g cordova ionic@1.3.3
+RUN npm install -g cordova ionic@1.3.22
 
 RUN ionic start myApp sidemenu
 
@@ -44,4 +44,4 @@ RUN ["/opt/tools/android-accept-licenses.sh", "android update sdk --all --no-ui 
 
 
 WORKDIR myApp
-CMD ["ionic", "serve", "8100", "35729"]
+CMD ["ionic", "serve"]
