@@ -1,12 +1,27 @@
 FROM     ubuntu:14.04.2
 MAINTAINER bitard [dot] michael [at] gmail [dot] com
 
-# make sure the package repository is up to date
-RUN apt-get update &&  \
-    apt-get install -y npm && ln -s /usr/bin/nodejs /usr/local/bin/node && \
-    apt-get clean
 
-RUN npm install -g cordova ionic@1.4.5
+# Install basics
+RUN apt-get update &&  \
+    apt-get install -y git wget curl ruby
+
+ENV NODE_VERSION 0.12.7
+ENV NPM_VERSION 2.14.1
+ENV IONIC_VERSION 1.6.4
+ENV BOWER_VERSION 1.5.2
+ENV CORDOVA_VERSION 5.3.1
+ENV GRUNT_VERSION 0.1.13
+ENV GULP_VERSION 3.9.0
+
+RUN curl --retry 3 -SLO "http://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.gz" \
+    && tar -xzf "node-v$NODE_VERSION-linux-x64.tar.gz" -C /usr/local --strip-components=1 \
+    && rm "node-v$NODE_VERSION-linux-x64.tar.gz" \
+    && npm install -g npm@"$NPM_VERSION" \
+    && npm install -g grunt-cli@"$GRUNT_VERSION" bower@"$BOWER_VERSION"  cordova@"$CORDOVA_VERSION" ionic@"$IONIC_VERSION" gulp@"$GULP_VERSION" \
+    && npm cache clear
+
+RUN gem install sass
 
 RUN ionic start myApp sidemenu
 
