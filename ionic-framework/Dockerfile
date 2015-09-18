@@ -6,13 +6,13 @@ MAINTAINER bitard [dot] michael [at] gmail [dot] com
 RUN apt-get update &&  \
     apt-get install -y git wget curl ruby
 
-ENV NODE_VERSION 0.12.7
-ENV NPM_VERSION 2.14.1
-ENV IONIC_VERSION 1.6.4
-ENV BOWER_VERSION 1.5.2
-ENV CORDOVA_VERSION 5.3.1
-ENV GRUNT_VERSION 0.1.13
-ENV GULP_VERSION 3.9.0
+ENV NODE_VERSION=0.12.7 \
+    NPM_VERSION=2.14.1 \
+    IONIC_VERSION=1.6.4 \
+    BOWER_VERSION=1.5.2 \
+    CORDOVA_VERSION=5.3.1 \
+    GRUNT_VERSION=0.1.13 \
+    GULP_VERSION=3.9.0
 
 RUN curl --retry 3 -SLO "http://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.gz" \
     && tar -xzf "node-v$NODE_VERSION-linux-x64.tar.gz" -C /usr/local --strip-components=1 \
