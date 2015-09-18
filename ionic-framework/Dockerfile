@@ -4,7 +4,10 @@ MAINTAINER bitard [dot] michael [at] gmail [dot] com
 
 # Install basics
 RUN apt-get update &&  \
-    apt-get install -y git wget curl ruby
+    apt-get install -y git wget curl ruby && \
+    apt-get clean && \
+    apt-get autoclean && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 ENV NODE_VERSION=0.12.7 \
     NPM_VERSION=2.14.1 \
@@ -32,12 +35,18 @@ EXPOSE 35729
 #JAVA
 ENV DEBIAN_FRONTEND noninteractive
 # install python-software-properties (so you can do add-apt-repository)
-RUN apt-get update && apt-get install -y -q python-software-properties software-properties-common && apt-get clean
+RUN apt-get update && apt-get install -y -q python-software-properties software-properties-common  && \
+    apt-get clean && \
+    apt-get autoclean && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # install oracle java from PPA
 RUN add-apt-repository ppa:webupd8team/java -y
 RUN echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections
-RUN apt-get update && apt-get -y install oracle-java7-installer && apt-get clean
+RUN apt-get update && apt-get -y install oracle-java7-installer && \
+    apt-get clean && \
+    apt-get autoclean && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 #ANDROID STUFF
 RUN dpkg --add-architecture i386 && apt-get update && apt-get install -y --force-yes expect ant wget libc6-i386 lib32stdc++6 lib32gcc1 lib32ncurses5 lib32z1 qemu-kvm kmod && apt-get clean
