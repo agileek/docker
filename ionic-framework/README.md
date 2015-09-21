@@ -49,6 +49,8 @@ ionic run android
 #FAQ
     * The application is not installed on my android device
         * Try `docker run -ti -p 8100:8100 -p 35729:35729 --privileged -v /dev/bus/usb:/dev/bus/usb -v \$PWD:/myApp:rw agileek/ionic-framework adb devices` your device should appear
+    * The adb devices show nothing whereas I can see it when I do adb devices on my computer
+        * You can't have adb inside and outside docker at the same time, be sure to `adb kill-server` on your computer before using this image
 
 # Coming next
 Support for android emulation with X11 forwarding
