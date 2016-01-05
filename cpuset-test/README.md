@@ -1,3 +1,4 @@
+[![](https://badge.imagelayers.io/agileek/cpuset-test:latest.svg)](https://imagelayers.io/?images=agileek/cpuset-test:latest 'Get your own badge on imagelayers.io')
 You can use this to experiment with the --cpu-share, --cpuset flags of docker run.
 see here: http://agileek.github.io/docker/2014/08/06/docker-cpuset/ 
 
