@@ -1,7 +1,2 @@
 #!/bin/bash
-for (( i=1; i<${1}; i++))
-do 
-   echo $i
-   burnP6 & 
-done
-burnP6
+/cpuburn -n ${1}
