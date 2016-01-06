@@ -6,7 +6,7 @@ see here: http://agileek.github.io/docker/2014/08/06/docker-cpuset/
 
 USAGE (depending on the number of cpus in your machine, numbers are from 0 to n):
 
-    sudo docker run -it --rm --cpuset=0,1 agileek/cpuset-test /cpus 2
+    sudo docker run -it --rm --cpuset=0,1 agileek/cpuset-test
     sudo docker run -it --rm --cpuset=3 agileek/cpuset-test
 
 
@@ -21,7 +21,7 @@ USAGE (depending on the number of cpus in your machine, numbers are from 0 to n)
   
 e.g. burn cpu's number 1 and 6
 
-    $ docker run -ti --rm --cpuset=1,6 agileek/cpuset-test /cpus 2
+    $ docker run -ti --rm --cpuset=1,6 agileek/cpuset-test
 
     $ memstat -P ALL 2  #update every 2 seconds
 ```
