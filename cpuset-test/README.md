@@ -1,13 +1,13 @@
 [![](https://badge.imagelayers.io/agileek/cpuset-test:latest.svg)](https://imagelayers.io/?images=agileek/cpuset-test:latest 'Get your own badge on imagelayers.io')
 
 
-You can use this to experiment with the --cpu-share, --cpuset flags of docker run.
+You can use this to experiment with the --cpu-share, --cpuset-cpus flags of docker run.
 see here: http://agileek.github.io/docker/2014/08/06/docker-cpuset/ 
 
 USAGE (depending on the number of cpus in your machine, numbers are from 0 to n):
 
-    sudo docker run -it --rm --cpuset=0,1 agileek/cpuset-test
-    sudo docker run -it --rm --cpuset=3 agileek/cpuset-test
+    sudo docker run -it --rm --cpuset-cpus=0,1 agileek/cpuset-test
+    sudo docker run -it --rm --cpuset-cpus=3 agileek/cpuset-test
 
 
 
@@ -21,7 +21,7 @@ USAGE (depending on the number of cpus in your machine, numbers are from 0 to n)
   
 e.g. burn cpu's number 1 and 6
 
-    $ docker run -ti --rm --cpuset=1,6 agileek/cpuset-test
+    $ docker run -ti --rm --cpuset-cpus=1,6 agileek/cpuset-test
 
     $ memstat -P ALL 2  #update every 2 seconds
 ```
