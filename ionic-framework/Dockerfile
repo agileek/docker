@@ -7,7 +7,7 @@ ENV DEBIAN_FRONTEND=noninteractive \
     IONIC_VERSION=1.7.14 \
     BOWER_VERSION=1.7.7 \
     CORDOVA_VERSION=6.0.0 \
-    GRUNT_VERSION=0.4.5 \
+    GRUNT_VERSION=0.1.13 \
     GULP_VERSION=3.9.1
 
 # Install basics
