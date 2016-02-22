@@ -3,4 +3,4 @@
 
 Contains the following images:
 * [cpuset-test](cpuset-test/) [![](https://badge.imagelayers.io/agileek/cpuset-test:latest.svg)](https://imagelayers.io/?images=agileek/cpuset-test:latest 'Get your own badge on imagelayers.io')
-* [ionic-framework](ionic-framework/)
+* [ionic-framework](ionic-framework/) [![](https://badge.imagelayers.io/agileek/ionic-framework:latest.svg)](https://imagelayers.io/?images=agileek/ionic-framework:latest 'Get your own badge on imagelayers.io')
