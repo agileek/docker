@@ -47,7 +47,7 @@ RUN apt-get update &&  \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
 
 # Install Android SDK
-    cd /opt && wget --output-document=android-sdk.tgz --quiet http://dl.google.com/android/android-sdk_r24.4.1-linux.tgz && tar xzf android-sdk.tgz && rm -f android-sdk.tgz
+    cd /opt && wget --output-document=android-sdk.tgz --quiet http://dl.google.com/android/android-sdk_r24.4.1-linux.tgz && tar xzf android-sdk.tgz && rm -f android-sdk.tgz && chown -R root. /opt
 
 # Setup environment
 ENV ANDROID_HOME /opt/android-sdk-linux
