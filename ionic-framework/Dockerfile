@@ -47,7 +47,7 @@ RUN apt-get update &&  \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
 
 # Install Android SDK
-    cd /opt && wget --output-document=android-sdk.tgz --quiet http://dl.google.com/android/android-sdk_r24.2-linux.tgz && tar xzf android-sdk.tgz && rm -f android-sdk.tgz
+    cd /opt && wget --output-document=android-sdk.tgz --quiet http://dl.google.com/android/android-sdk_r24.4.1-linux.tgz && tar xzf android-sdk.tgz && rm -f android-sdk.tgz
 
 # Setup environment
 ENV ANDROID_HOME /opt/android-sdk-linux
@@ -59,7 +59,7 @@ ENV PATH ${PATH}:/opt/tools
 
 RUN echo ANDROID_HOME="${ANDROID_HOME}" >> /etc/environment
 
-RUN ["/opt/tools/android-accept-licenses.sh", "android update sdk --all --no-ui --filter platform-tools,tools,build-tools-22.0.1,android-22,extra-android-support,extra-android-m2repository,extra-google-m2repository"]
+RUN ["/opt/tools/android-accept-licenses.sh", "android update sdk --all --no-ui --filter platform-tools,tools,build-tools-23.0.2,android-23,extra-android-support,extra-android-m2repository,extra-google-m2repository"]
 
 
 WORKDIR myApp
