@@ -63,7 +63,7 @@ ENV PATH ${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools:/opt/tools
 COPY tools /opt/tools
 
 RUN ["/opt/tools/android-accept-licenses.sh", "android update sdk --all --no-ui --filter platform-tools,tools,build-tools-23.0.2,android-23,extra-android-support,extra-android-m2repository,extra-google-m2repository"]
-RUN unzip ${ANDROID_HOME}/temp/*.zip -d ${ANDROID_HOME}/tools
+RUN unzip ${ANDROID_HOME}/temp/*.zip -d ${ANDROID_HOME}
 
 WORKDIR myApp
 EXPOSE 8100 35729
