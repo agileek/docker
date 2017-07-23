@@ -1,39 +1,37 @@
-FROM     ubuntu:14.04.4
+FROM     ubuntu:16.04
 MAINTAINER bitard [dot] michael [at] gmail [dot] com
 
 ENV DEBIAN_FRONTEND=noninteractive \
     ANDROID_HOME=/opt/android-sdk-linux \
-    NODE_VERSION=6.10.0 \
-    NPM_VERSION=3.10.10 \
-    IONIC_VERSION=2.2.1 \
-    CORDOVA_VERSION=6.5.0
+    NODE_VERSION=6.11.1 \
+    NPM_VERSION=5.3.0 \
+    IONIC_VERSION=3.5.0 \
+    CORDOVA_VERSION=7.0.1
 
 # Install basics
 RUN apt-get update &&  \
-    apt-get install -y git wget curl unzip ruby && \
+    apt-get install -y git wget curl unzip ruby ruby-dev gcc make && \
 
     curl --retry 3 -SLO "http://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.gz" && \
     tar -xzf "node-v$NODE_VERSION-linux-x64.tar.gz" -C /usr/local --strip-components=1 && \
     rm "node-v$NODE_VERSION-linux-x64.tar.gz" && \
     npm install -g npm@"$NPM_VERSION" && \
     npm install -g cordova@"$CORDOVA_VERSION" ionic@"$IONIC_VERSION" && \
-    npm cache clear && \
+    npm cache clear --force && \
 
     gem install sass && \
-
+    git config --global user.email "you@example.com" && \
+    git config --global user.name "Your Name" && \
     ionic start myApp sidemenu && \
-
-
-
 #ANDROID
 #JAVA
 
 # install python-software-properties (so you can do add-apt-repository)
-    apt-get update && apt-get install -y -q python-software-properties software-properties-common  && \
+   apt-get update && apt-get install -y -q python-software-properties software-properties-common  && \
 
     add-apt-repository ppa:webupd8team/java -y && \
     echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections && \
-    apt-get update && apt-get -y install oracle-java7-installer && \
+    apt-get update && apt-get -y install oracle-java8-installer && \
 
 
 #ANDROID STUFF
