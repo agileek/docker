@@ -3,9 +3,9 @@ MAINTAINER bitard [dot] michael [at] gmail [dot] com
 
 ENV DEBIAN_FRONTEND=noninteractive \
     ANDROID_HOME=/opt/android-sdk-linux \
-    NODE_VERSION=6.11.1 \
+    NODE_VERSION=6.11.2 \
     NPM_VERSION=5.3.0 \
-    IONIC_VERSION=3.5.0 \
+    IONIC_VERSION=3.9.2 \
     CORDOVA_VERSION=7.0.1
 
 # Install basics
