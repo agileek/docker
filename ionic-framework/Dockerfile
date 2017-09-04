@@ -23,17 +23,16 @@ RUN apt-get update &&  \
     gem install sass && \
     git config --global user.email "you@example.com" && \
     git config --global user.name "Your Name" && \
-    ionic start myApp sidemenu && \
+    ionic start myApp sidemenu --no-interactive && \
 #ANDROID
 #JAVA
 
 # install python-software-properties (so you can do add-apt-repository)
-   apt-get update && apt-get install -y -q python-software-properties software-properties-common  && \
+    apt-get update && apt-get install -y -q python-software-properties software-properties-common  && \
 
     add-apt-repository ppa:webupd8team/java -y && \
     echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections && \
     apt-get update && apt-get -y install oracle-java8-installer && \
-
 
 #ANDROID STUFF
     echo ANDROID_HOME="${ANDROID_HOME}" >> /etc/environment && \
@@ -49,12 +48,12 @@ RUN apt-get update &&  \
     wget --output-document=android-sdk.tgz --quiet http://dl.google.com/android/android-sdk_r24.4.1-linux.tgz && \
     tar xzf android-sdk.tgz && \
     rm -f android-sdk.tgz && \
-    chown -R root. /opt
+    chown -R root. /opt && \
 
 # Install Gradle
-    wget https://services.gradle.org/distributions/gradle-"$GRADLE_VERSION"-bin.zip
-    mkdir /opt/gradle
-    unzip -d /opt/gradle gradle-"$GRADLE_VERSION"-bin.zip
+    wget https://services.gradle.org/distributions/gradle-"$GRADLE_VERSION"-bin.zip && \
+    mkdir /opt/gradle && \
+    unzip -d /opt/gradle gradle-"$GRADLE_VERSION"-bin.zip && \
     rm -rf gradle-"$GRADLE_VERSION"-bin.zip
 
 # Setup environment
