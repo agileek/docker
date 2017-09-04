@@ -55,6 +55,7 @@ RUN apt-get update &&  \
     wget https://services.gradle.org/distributions/gradle-"$GRADLE_VERSION"-bin.zip
     mkdir /opt/gradle
     unzip -d /opt/gradle gradle-"$GRADLE_VERSION"-bin.zip
+    rm -rf gradle-"$GRADLE_VERSION"-bin.zip
 
 # Setup environment
 
