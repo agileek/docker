@@ -6,7 +6,8 @@ ENV DEBIAN_FRONTEND=noninteractive \
     NODE_VERSION=6.11.2 \
     NPM_VERSION=5.3.0 \
     IONIC_VERSION=3.9.2 \
-    CORDOVA_VERSION=7.0.1
+    CORDOVA_VERSION=7.0.1 \
+    GRADLE_VERSION=4.1
 
 # Install basics
 RUN apt-get update &&  \
@@ -50,9 +51,14 @@ RUN apt-get update &&  \
     rm -f android-sdk.tgz && \
     chown -R root. /opt
 
+# Install Gradle
+    wget https://services.gradle.org/distributions/gradle-"$GRADLE_VERSION"-bin.zip
+    mkdir /opt/gradle
+    unzip -d /opt/gradle gradle-"$GRADLE_VERSION"-bin.zip
+
 # Setup environment
 
-ENV PATH ${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools:/opt/tools
+ENV PATH ${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools:/opt/tools:/opt/gradle/gradle-"$GRADLE_VERSION"/bin
 
 # Install sdk elements
 COPY tools /opt/tools
