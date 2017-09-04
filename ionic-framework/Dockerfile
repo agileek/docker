@@ -6,7 +6,8 @@ ENV DEBIAN_FRONTEND=noninteractive \
     NODE_VERSION=6.11.2 \
     NPM_VERSION=5.3.0 \
     IONIC_VERSION=3.9.2 \
-    CORDOVA_VERSION=7.0.1
+    CORDOVA_VERSION=7.0.1 \
+    GRADLE_VERSION=4.1
 
 # Install basics
 RUN apt-get update &&  \
@@ -29,12 +30,11 @@ RUN apt-get update &&  \
 #JAVA
 
 # install python-software-properties (so you can do add-apt-repository)
-   apt-get update && apt-get install -y -q python-software-properties software-properties-common  && \
+    apt-get update && apt-get install -y -q python-software-properties software-properties-common  && \
 
     add-apt-repository ppa:webupd8team/java -y && \
     echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections && \
     apt-get update && apt-get -y install oracle-java8-installer && \
-
 
 #ANDROID STUFF
     echo ANDROID_HOME="${ANDROID_HOME}" >> /etc/environment && \
@@ -50,16 +50,22 @@ RUN apt-get update &&  \
     wget --output-document=android-sdk.tgz --quiet http://dl.google.com/android/android-sdk_r24.4.1-linux.tgz && \
     tar xzf android-sdk.tgz && \
     rm -f android-sdk.tgz && \
-    chown -R root. /opt
+    chown -R root. /opt && \
+
+# Install Gradle
+    wget https://services.gradle.org/distributions/gradle-"$GRADLE_VERSION"-bin.zip && \
+    mkdir /opt/gradle && \
+    unzip -d /opt/gradle gradle-"$GRADLE_VERSION"-bin.zip && \
+    rm -rf gradle-"$GRADLE_VERSION"-bin.zip
 
 # Setup environment
 
-ENV PATH ${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools:/opt/tools
+ENV PATH ${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools:/opt/tools:/opt/gradle/gradle-"$GRADLE_VERSION"/bin
 
 # Install sdk elements
 COPY tools /opt/tools
 
-RUN ["/opt/tools/android-accept-licenses.sh", "android update sdk --all --no-ui --filter platform-tools,tools,build-tools-23.0.2,android-23,extra-android-support,extra-android-m2repository,extra-google-m2repository"]
+RUN ["/opt/tools/android-accept-licenses.sh", "android update sdk --all --no-ui --filter platform-tools,tools,build-tools-25.0.0,android-25,extra-android-support,extra-android-m2repository,extra-google-m2repository"]
 RUN unzip ${ANDROID_HOME}/temp/*.zip -d ${ANDROID_HOME}
 
 WORKDIR myApp
