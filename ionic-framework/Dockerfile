@@ -22,7 +22,9 @@ RUN apt-get update &&  \
     gem install sass && \
     git config --global user.email "you@example.com" && \
     git config --global user.name "Your Name" && \
-    ionic start myApp sidemenu && \
+    export CI=true && \
+    ionic config set -g daemon.updates false && \
+    ionic start myApp sidemenu --no-interactive && \
 #ANDROID
 #JAVA
 
