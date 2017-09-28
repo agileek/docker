@@ -1,5 +1,5 @@
 FROM     ubuntu:16.04
-MAINTAINER bitard [dot] michael [at] gmail [dot] com
+LABEL maintainer="bitard [dot] michael [at] gmail [dot] com"
 
 ENV DEBIAN_FRONTEND=noninteractive \
     ANDROID_HOME=/opt/android-sdk-linux \
