@@ -3,11 +3,11 @@ LABEL maintainer="bitard [dot] michael [at] gmail [dot] com"
 
 ENV DEBIAN_FRONTEND=noninteractive \
     ANDROID_HOME=/opt/android-sdk-linux \
-    NODE_VERSION=6.11.3 \
-    NPM_VERSION=5.4.2 \
-    IONIC_VERSION=3.12.0 \
+    NODE_VERSION=8.6.0 \
+    NPM_VERSION=5.5.1 \
+    IONIC_VERSION=3.13.0 \
     CORDOVA_VERSION=7.0.1 \
-    GRADLE_VERSION=4.2
+    GRADLE_VERSION=4.2.1
 
 # Install basics
 RUN apt-get update &&  \
