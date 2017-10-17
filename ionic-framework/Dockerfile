@@ -3,10 +3,10 @@ LABEL maintainer="bitard [dot] michael [at] gmail [dot] com"
 
 ENV DEBIAN_FRONTEND=noninteractive \
     ANDROID_HOME=/opt/android-sdk-linux \
-    NODE_VERSION=8.6.0 \
+    NODE_VERSION=8.7.0 \
     NPM_VERSION=5.5.1 \
-    IONIC_VERSION=3.13.0 \
-    CORDOVA_VERSION=7.0.1 \
+    IONIC_VERSION=3.13.1 \
+    CORDOVA_VERSION=7.1.0 \
     GRADLE_VERSION=4.2.1
 
 # Install basics
