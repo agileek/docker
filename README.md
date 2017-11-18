@@ -7,3 +7,4 @@ Contains the following images:
 * [cpuset-test](cpuset-test/) [![](https://images.microbadger.com/badges/image/agileek/cpuset-test.svg)](https://microbadger.com/images/agileek/cpuset-test "Get your own image badge on microbadger.com")
 * [pdftk](pdftk/) [![](https://images.microbadger.com/badges/image/agileek/pdftk.svg)](https://microbadger.com/images/agileek/pdftk "Get your own image badge on microbadger.com")
 * [signal-cli](signal-cli/) [![](https://images.microbadger.com/badges/image/agileek/signal-cli.svg)](https://microbadger.com/images/agileek/signal-cli "Get your own image badge on microbadger.com")
+* [ionic-framework](ionic-framework/) [![](https://images.microbadger.com/badges/image/agileek/ionic-framework.svg)](https://microbadger.com/images/agileek/ionic-framework "Get your own image badge on microbadger.com")
