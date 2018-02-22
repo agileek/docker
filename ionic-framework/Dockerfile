@@ -3,15 +3,15 @@ LABEL maintainer="bitard [dot] michael [at] gmail [dot] com"
 
 ENV DEBIAN_FRONTEND=noninteractive \
     ANDROID_HOME=/opt/android-sdk-linux \
-    NODE_VERSION=8.9.1 \
-    NPM_VERSION=5.5.1 \
-    IONIC_VERSION=3.18.0 \
-    CORDOVA_VERSION=7.1.0 \
-    GRADLE_VERSION=4.3
+    NODE_VERSION=8.9.4 \
+    NPM_VERSION=5.6.0 \
+    IONIC_VERSION=3.19.1 \
+    CORDOVA_VERSION=8.0.0 \
+    GRADLE_VERSION=4.5.1
 
 # Install basics
 RUN apt-get update &&  \
-    apt-get install -y git wget curl unzip ruby ruby-dev gcc make && \
+    apt-get install -y git wget curl unzip build-essential ruby ruby-dev ruby-ffi gcc make && \
     curl --retry 3 -SLO "http://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.gz" && \
     tar -xzf "node-v$NODE_VERSION-linux-x64.tar.gz" -C /usr/local --strip-components=1 && \
     rm "node-v$NODE_VERSION-linux-x64.tar.gz" && \
