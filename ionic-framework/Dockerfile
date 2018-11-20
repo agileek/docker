@@ -3,11 +3,11 @@ LABEL maintainer="bitard [dot] michael [at] gmail [dot] com"
 
 ENV DEBIAN_FRONTEND=noninteractive \
     ANDROID_HOME=/opt/android-sdk-linux \
-    NODE_VERSION=8.9.4 \
-    NPM_VERSION=5.6.0 \
-    IONIC_VERSION=3.19.1 \
-    CORDOVA_VERSION=8.0.0 \
-    GRADLE_VERSION=4.5.1
+    NODE_VERSION=10.13.0 \
+    NPM_VERSION=6.4.1 \
+    IONIC_VERSION=4.3.1 \
+    CORDOVA_VERSION=8.1.2\
+    GRADLE_VERSION=4.10.2
 
 # Install basics
 RUN apt-get update &&  \
@@ -60,7 +60,7 @@ ENV PATH ${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools:/opt/tools
 # Install sdk elements
 COPY tools /opt/tools
 
-RUN ["/opt/tools/android-accept-licenses.sh", "android update sdk --all --no-ui --filter platform-tools,tools,build-tools-26.0.0,android-26,build-tools-25.0.0,android-25,extra-android-support,extra-android-m2repository,extra-google-m2repository"]
+RUN ["/opt/tools/android-accept-licenses.sh", "android update sdk --all --no-ui --filter platform-tools,tools,build-tools-26.0.2,android-27,android-26,build-tools-25.0.0,android-25,extra-android-support,extra-android-m2repository,extra-google-m2repository"]
 RUN unzip ${ANDROID_HOME}/temp/*.zip -d ${ANDROID_HOME}
 
 # Test First Build so that it will be faster later
