@@ -9,3 +9,4 @@ Contains the following images:
 * [signal-cli](signal-cli/) [![](https://images.microbadger.com/badges/image/agileek/signal-cli.svg)](https://microbadger.com/images/agileek/signal-cli "Get your own image badge on microbadger.com")
 * [ionic-framework](ionic-framework/) [![](https://images.microbadger.com/badges/image/agileek/ionic-framework.svg)](https://microbadger.com/images/agileek/ionic-framework "Get your own image badge on microbadger.com")
 * [ghi](ghi/) [![](https://images.microbadger.com/badges/image/agileek/ghi.svg)](https://microbadger.com/images/agileek/ghi "Get your own image badge on microbadger.com")
+* [duplicity](duplicity/) [![](https://images.microbadger.com/badges/image/agileek/duplicity.svg)](https://microbadger.com/images/agileek/duplicity "Get your own image badge on microbadger.com")
